@@ -1,0 +1,110 @@
+/* Estilos gerais para o corpo da página */
+body {
+    font-family: sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container principal da aplicação */
+.conteudo {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Título principal */
+h1 {
+    text-align: center;
+}
+
+/* Formulário de adição de tarefas */
+#formulario-tarefa {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+/* Estilos para os campos do formulário */
+#formulario-tarefa input,
+#formulario-tarefa textarea,
+#formulario-tarefa select {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Botão de submissão do formulário */
+#formulario-tarefa button {
+    padding: 10px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Lista de tarefas */
+#lista-tarefas {
+    list-style: none;
+    padding: 0;
+}
+
+/* Item individual da lista de tarefas */
+.tarefa {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+/* Cores para indicar a prioridade das tarefas */
+.tarefa.prioridade-baixa {
+    border-left: 5px solid #2ecc71; /* Verde */
+}
+
+.tarefa.prioridade-media {
+    border-left: 5px solid #f1c40f; /* Amarelo */
+}
+
+.tarefa.prioridade-alta {
+    border-left: 5px solid #e74c3c; /* Vermelho */
+}
+
+/* Container para os botões de ação (editar, excluir) */
+.tarefa .botoes {
+    display: flex;
+    gap: 10px;
+}
+
+/* Estilos gerais para os botões dentro de uma tarefa */
+.tarefa button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Botão de editar */
+.tarefa .botao-editar {
+    background-color: #3498db; /* Azul */
+    color: #fff;
+}
+
+/* Botão de excluir */
+.tarefa .botao-excluir {
+    background-color: #e74c3c; /* Vermelho */
+    color: #fff;
+}
+
+/* Estilos para telas menores (responsividade) */
+@media (max-width: 768px) {
+    .conteudo {
+        width: 95%;
+    }
+}

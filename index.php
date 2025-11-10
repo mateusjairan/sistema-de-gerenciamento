@@ -1,12 +1,22 @@
 <?php
-// Inclui o arquivo de funções, que contém a lógica de CRUD (Criar, Ler, Atualizar, Excluir) para as tarefas.
+// Inicia a sessão para gerenciar o estado de login do usuário.
+session_start();
 include 'funcoes.php';
+
+// Se o usuário não estiver logado, redireciona para a página de login.
+if (!isset($_SESSION['usuario_id'])) {
+    header('Location: login.php');
+    exit;
+}
+
+// Obtém o ID do usuário da sessão.
+$usuario_id = $_SESSION['usuario_id'];
 
 // Verifica se a requisição é do tipo POST, o que indica que um formulário foi enviado.
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Se o botão 'adicionar' foi pressionado, chama a função para adicionar uma nova tarefa.
     if (isset($_POST['adicionar'])) {
-        adicionarTarefa($conexao, $_POST['titulo'], $_POST['descricao'], $_POST['data_vencimento'], $_POST['prioridade']);
+        adicionarTarefa($conexao, $_POST['titulo'], $_POST['descricao'], $_POST['data_vencimento'], $_POST['prioridade'], $usuario_id);
     // Se o botão 'excluir' foi pressionado, chama a função para excluir a tarefa correspondente.
     } elseif (isset($_POST['excluir'])) {
         excluirTarefa($conexao, $_POST['id']);
@@ -19,8 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 
-// Busca todas as tarefas do banco de dados para exibi-las na página.
-$tarefas = listarTarefas($conexao);
+// Busca as tarefas do usuário logado para exibi-las na página.
+$tarefas = listarTarefas($conexao, $usuario_id);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -34,10 +44,11 @@ $tarefas = listarTarefas($conexao);
     <nav class="menu-navegacao">
         <div class="conteudo">
             <a href="index.php" class="titulo-menu">Gerenciador de Tarefas</a>
+            <a href="logout.php" class="botao-logout">Sair</a>
         </div>
     </nav>
     <div class="conteudo">
-        <h1>Lista de Tarefas</h1>
+        <h1>Minhas Tarefas</h1>
         <!-- Formulário para adicionar uma nova tarefa -->
         <form action="index.php" method="post" id="formulario-tarefa">
             <input type="text" name="titulo" placeholder="Título" required>

@@ -31,6 +31,11 @@ $tarefas = listarTarefas($conexao);
     <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
+    <nav class="menu-navegacao">
+        <div class="conteudo">
+            <a href="index.php" class="titulo-menu">Gerenciador de Tarefas</a>
+        </div>
+    </nav>
     <div class="conteudo">
         <h1>Lista de Tarefas</h1>
         <!-- Formulário para adicionar uma nova tarefa -->

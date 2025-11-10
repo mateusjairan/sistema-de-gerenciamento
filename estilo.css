@@ -6,6 +6,20 @@ body {
     padding: 0;
 }
 
+/* Menu de navegação */
+.menu-navegacao {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+.titulo-menu {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5em;
+}
+
 /* Container principal da aplicação */
 .conteudo {
     width: 80%;
@@ -83,15 +97,18 @@ h1 {
 }
 
 /* Estilos gerais para os botões dentro de uma tarefa */
-.tarefa button {
+.tarefa button, .botao-editar {
     padding: 5px 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
 }
 
 /* Botão de editar */
-.tarefa .botao-editar {
+.botao-editar {
     background-color: #3498db; /* Azul */
     color: #fff;
 }
